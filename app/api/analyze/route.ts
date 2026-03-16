@@ -4,7 +4,9 @@ import { refreshIfNeeded } from '@/lib/tokenStore'
 import { getSystemPrompt } from '@/lib/systemPrompts'
 import type { AnalyzePayload } from '@/lib/types'
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+function getOpenAIClient() {
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY! })
+}
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -44,7 +46,7 @@ async function callOpenAI(department: string, transcript: string): Promise<Recor
   const systemPrompt = getSystemPrompt(department)
 
   async function attempt(): Promise<Record<string, unknown>> {
-    const completion = await openai.chat.completions.create({
+    const completion = await getOpenAIClient().chat.completions.create({
       model: 'gpt-4o-mini',
       temperature: 0.3,
       max_tokens: 4096,
