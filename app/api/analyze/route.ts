@@ -45,7 +45,7 @@ async function callOpenAI(department: string, transcript: string): Promise<Recor
 
   async function attempt(): Promise<Record<string, unknown>> {
     const completion = await openai.chat.completions.create({
-      model: 'gpt-4o',
+      model: 'gpt-4o-mini',
       temperature: 0.3,
       max_tokens: 4096,
       response_format: { type: 'json_object' },
@@ -62,11 +62,19 @@ async function callOpenAI(department: string, transcript: string): Promise<Recor
   try {
     return await attempt()
   } catch (firstErr) {
-    console.warn('[analyze] First OpenAI parse failed, retrying:', firstErr)
+    // Surface the real error (auth failure, quota, network, etc.) instead of masking it
+    const msg = firstErr instanceof Error ? firstErr.message : String(firstErr)
+    console.warn('[analyze] First attempt failed:', msg)
+
+    // Only retry on JSON parse errors — not on API/auth errors
+    if (!msg.includes('JSON') && !msg.includes('parse') && !msg.includes('Unexpected')) {
+      throw firstErr
+    }
+
     try {
       return await attempt()
     } catch (secondErr) {
-      console.error('[analyze] Second OpenAI parse failed:', secondErr)
+      console.error('[analyze] Second attempt failed:', secondErr)
       throw new Error('OpenAI returned invalid JSON after 2 attempts')
     }
   }
