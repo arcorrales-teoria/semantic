@@ -1,49 +1,28 @@
 export default function JiraIcon({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 116 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      {/* ── Icon mark ── */}
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <path
-        d="M18.24 1.4 10.6 9.04a2.76 2.76 0 0 0 0 3.9l6.26 6.26 8.74-8.74a2.76 2.76 0 0 0 0-3.9L19.34 1.4a.78.78 0 0 0-1.1 0Z"
-        fill="url(#jw-g1)"
+        d="M11.92 0 5.83 6.09a1.97 1.97 0 0 0 0 2.79l4.47 4.47 6.24-6.24a1.97 1.97 0 0 0 0-2.79L13.71.31a1.33 1.33 0 0 0-1.79-.31Z"
+        fill="url(#ji-g1)"
       />
       <path
-        d="M9.14 10.5 1.5 18.14a2.76 2.76 0 0 0 0 3.9l6.26 6.26 8.74-8.74L9.14 10.5Z"
-        fill="url(#jw-g2)"
+        d="M5.83 7.12 0 13.21a1.97 1.97 0 0 0 0 2.79l4.47 4.47 6.24-6.24-4.88-7.11Z"
+        fill="url(#ji-g2)"
       />
       <path
-        d="M18.24 1.4 10.6 9.04a2.76 2.76 0 0 0 0 3.9l6.26 6.26 8.74-8.74a2.76 2.76 0 0 0 0-3.9L19.34 1.4a.78.78 0 0 0-1.1 0Z"
-        fill="url(#jw-g3)"
+        d="M11.92 0 5.83 6.09a1.97 1.97 0 0 0 0 2.79l4.47 4.47 6.24-6.24a1.97 1.97 0 0 0 0-2.79L13.71.31a1.33 1.33 0 0 0-1.79-.31Z"
+        fill="url(#ji-g3)"
         opacity=".4"
       />
-      {/* ── "Jira" wordmark ── */}
-      <text
-        x="34"
-        y="23"
-        fontSize="20"
-        fontWeight="600"
-        fontFamily="'Helvetica Neue', Arial, sans-serif"
-        fill="#253858"
-        letterSpacing="-0.3"
-      >
-        Jira
-      </text>
       <defs>
-        <linearGradient id="jw-g1" x1="23.4" y1="4.15" x2="15.78" y2="11.77" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#2684FF" />
-          <stop offset="1" stopColor="#0052CC" />
+        <linearGradient id="ji-g1" x1="16.7" y1="2.97" x2="11.27" y2="8.4" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#2684FF" /><stop offset="1" stopColor="#0052CC" />
         </linearGradient>
-        <linearGradient id="jw-g2" x1="6.42" y1="13.16" x2="15.2" y2="21.7" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#2684FF" />
-          <stop offset="1" stopColor="#0052CC" />
+        <linearGradient id="ji-g2" x1="4.58" y1="9.4" x2="10.85" y2="15.5" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#2684FF" /><stop offset="1" stopColor="#0052CC" />
         </linearGradient>
-        <linearGradient id="jw-g3" x1="23.4" y1="4.15" x2="15.78" y2="11.77" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#2684FF" />
-          <stop offset="1" stopColor="#0052CC" />
+        <linearGradient id="ji-g3" x1="16.7" y1="2.97" x2="11.27" y2="8.4" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#2684FF" /><stop offset="1" stopColor="#0052CC" />
         </linearGradient>
       </defs>
     </svg>
